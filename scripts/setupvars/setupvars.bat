@@ -33,22 +33,22 @@ if exist "%INTEL_OPENVINO_DIR%\extras\opencv\setupvars.bat" (
 :opencv_done
 
 :: OpenVINO runtime
-set "InferenceEngine_DIR=%INTEL_OPENVINO_DIR%\runtime\cmake"
-set "ngraph_DIR=%INTEL_OPENVINO_DIR%\runtime\cmake"
-set "OpenVINO_DIR=%INTEL_OPENVINO_DIR%\runtime\cmake"
-set "HDDL_INSTALL_DIR=%INTEL_OPENVINO_DIR%\runtime\3rdparty\hddl"
-set "OPENVINO_LIB_PATHS=%INTEL_OPENVINO_DIR%\runtime\bin\intel64\Release;%INTEL_OPENVINO_DIR%\runtime\bin\intel64\Debug;%HDDL_INSTALL_DIR%\bin;%OPENVINO_LIB_PATHS%"
+set "InferenceEngine_DIR=%INTEL_OPENVINO_DIR%\cmake"
+set "ngraph_DIR=%INTEL_OPENVINO_DIR%\cmake"
+set "OpenVINO_DIR=%INTEL_OPENVINO_DIR%\cmake"
+set "HDDL_INSTALL_DIR=%INTEL_OPENVINO_DIR%\3rdparty\hddl"
+set "OPENVINO_LIB_PATHS=%INTEL_OPENVINO_DIR%\lib;%HDDL_INSTALL_DIR%\bin;%OPENVINO_LIB_PATHS%"
 
 :: TBB
-if exist %INTEL_OPENVINO_DIR%\runtime\3rdparty\tbb (
-   set "OPENVINO_LIB_PATHS=%INTEL_OPENVINO_DIR%\runtime\3rdparty\tbb\bin;%OPENVINO_LIB_PATHS%"
+if exist %INTEL_OPENVINO_DIR%\3rdparty\tbb (
+   set "OPENVINO_LIB_PATHS=%INTEL_OPENVINO_DIR%\3rdparty\tbb\bin;%OPENVINO_LIB_PATHS%"
 
-   if exist %INTEL_OPENVINO_DIR%\runtime\3rdparty\tbb\cmake (
-      set "TBB_DIR=%INTEL_OPENVINO_DIR%\runtime\3rdparty\tbb\cmake"
-   ) else if exist %INTEL_OPENVINO_DIR%\runtime\3rdparty\tbb\lib\cmake\TBB (
-      set "TBB_DIR=%INTEL_OPENVINO_DIR%\runtime\3rdparty\tbb\lib\cmake\TBB"
-   ) else if exist %INTEL_OPENVINO_DIR%\runtime\3rdparty\tbb\lib64\cmake\TBB (
-      set "TBB_DIR=%INTEL_OPENVINO_DIR%\runtime\3rdparty\tbb\lib64\cmake\TBB"
+   if exist %INTEL_OPENVINO_DIR%\3rdparty\tbb\cmake (
+      set "TBB_DIR=%INTEL_OPENVINO_DIR%\3rdparty\tbb\cmake"
+   ) else if exist %INTEL_OPENVINO_DIR%\3rdparty\tbb\lib\cmake\TBB (
+      set "TBB_DIR=%INTEL_OPENVINO_DIR%\3rdparty\tbb\lib\cmake\TBB"
+   ) else if exist %INTEL_OPENVINO_DIR%\3rdparty\tbb\lib64\cmake\TBB (
+      set "TBB_DIR=%INTEL_OPENVINO_DIR%\3rdparty\tbb\lib64\cmake\TBB"
    )
 )
 
